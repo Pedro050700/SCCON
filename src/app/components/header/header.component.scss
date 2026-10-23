@@ -1,0 +1,46 @@
+@use '../../../styles/variables' as vars;
+
+.header-sccon {
+  background-color: transparent;
+  position: sticky;
+  top: 0;
+  z-index: vars.$header-z-index;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  max-width: vars.$header-max-width;
+  margin: 0 auto;
+  padding-top: vars.$spacing-sm;
+
+  sccon-header-menu {
+    margin-left: auto;
+  }
+}
+
+
+// -------- LOGO --------
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: vars.$spacing-md;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: vars.$logo-size;
+  height: vars.$logo-size;
+  border: none;
+  border-radius: 0;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.brand-text {
+  display: none;
+}

@@ -1,0 +1,18 @@
+<div class="mapa-wrapper">
+  <div class="mapa-container" #mapaContainer></div>
+
+  @if (carregando()) {
+    <div class="overlay-carregando" role="status" aria-label="Carregando mapa">
+      <mat-spinner diameter="48" />
+      <p>Carregando estados...</p>
+    </div>
+  }
+
+  @if (erro()) {
+    <div class="overlay-erro" role="alert">
+      <p>Falha ao carregar dados do IBGE. Verifique sua conexão e recarregue a página.</p>
+    </div>
+  }
+
+  <sccon-painel-info [estado]="estadoSelecionado()" />
+</div>

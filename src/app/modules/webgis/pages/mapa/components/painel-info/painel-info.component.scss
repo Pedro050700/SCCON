@@ -1,0 +1,70 @@
+.painel {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
+  width: 220px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+
+  &--visivel {
+    box-shadow: 0 4px 24px rgba(103, 0, 0, 0.22);
+  }
+}
+
+.painel-conteudo {
+  padding: 16px;
+}
+
+.painel-titulo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #132745;
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0d0d0;
+}
+
+.painel-linha {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.painel-rotulo {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #999;
+  margin-bottom: 2px;
+}
+
+.painel-valor {
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.painel-sigla {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #132745;
+}
+
+.painel-vazio {
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #888;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.painel-vazio-icone {
+  font-size: 2rem;
+}

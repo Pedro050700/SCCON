@@ -1,0 +1,52 @@
+@use '../../../../../styles/variables' as v;
+
+.listagem-wrapper {
+  margin-top: v.$spacing-md;
+}
+
+.tabela-buscas {
+  width: 100%;
+
+  .mat-mdc-header-cell {
+    font-weight: 600;
+    font-size: v.$font-size-sm;
+    color: v.$color-text;
+    background-color: v.$color-logo-box-bg;
+  }
+
+  .mat-mdc-cell {
+    font-size: v.$font-size-sm;
+    color: #444;
+  }
+
+  .mat-mdc-row {
+    &:nth-child(even) {
+      background-color: v.$color-logo-box-bg;
+    }
+
+    &:hover {
+      background-color: v.$color-border;
+    }
+  }
+
+  .cel-acao {
+    width: 48px;
+    justify-content: flex-end;
+
+    .btn-deletar {
+      background: none;
+      border: none;
+      color: v.$color-text-light;
+      font-size: v.$font-size-sm;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 2px 6px;
+      border-radius: v.$border-radius-sm;
+      transition: color v.$transition-speed;
+
+      &:hover {
+        color: v.$color-error;
+      }
+    }
+  }
+}

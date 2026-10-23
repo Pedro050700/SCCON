@@ -1,0 +1,27 @@
+<aside class="painel" [class.painel--visivel]="estado() !== null">
+  @if (estado()) {
+    <div class="painel-conteudo">
+      <h2 class="painel-titulo">{{ estado()!.nome }}</h2>
+
+      <div class="painel-linha">
+        <span class="painel-rotulo">Sigla</span>
+        <span class="painel-valor painel-sigla">{{ estado()!.sigla }}</span>
+      </div>
+
+      <div class="painel-linha">
+        <span class="painel-rotulo">Região</span>
+        <span class="painel-valor">{{ estado()!.regiao }}</span>
+      </div>
+
+      <div class="painel-linha">
+        <span class="painel-rotulo">Código IBGE</span>
+        <span class="painel-valor">{{ estado()!.codarea }}</span>
+      </div>
+    </div>
+  } @else {
+    <div class="painel-vazio">
+      <span class="painel-vazio-icone" aria-hidden="true">🗺️</span>
+      <p>Clique em um estado para ver suas informações</p>
+    </div>
+  }
+</aside>

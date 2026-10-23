@@ -1,0 +1,39 @@
+<section class="busca-page">
+  <h2 class="titulo-pagina">Busca de Endereços</h2>
+
+  <div class="form-busca-wrapper">
+    <form [formGroup]="formularioBusca" (ngSubmit)="buscar()" class="form-busca">
+      <div class="input-group">
+        <input type="text" id="cep" class="input-cep" formControlName="cep" placeholder="00000-000"
+          autocomplete="postal-code" mask="00000-000" [dropSpecialCharacters]="false" #cepMask="mask"
+          aria-describedby="erro-cep"
+          [class.is-invalid]="formularioBusca.controls.cep.invalid && formularioBusca.controls.cep.touched" />
+        <button type="submit" class="btn-buscar" [disabled]="carregando()">
+          @if (carregando()) {
+          <mat-spinner diameter="18" aria-label="Carregando..."></mat-spinner>
+          } @else {
+          Buscar
+          }
+        </button>
+      </div>
+
+      <div id="erro-cep" aria-live="polite">
+        @if (formularioBusca.controls.cep.errors?.['required'] && formularioBusca.controls.cep.touched) {
+        <small class="msg-erro">CEP é obrigatório</small>
+        }
+        @if (formularioBusca.controls.cep.errors?.['pattern'] && formularioBusca.controls.cep.touched) {
+        <small class="msg-erro">Formato inválido. Use: 00000-000</small>
+        }
+      </div>
+    </form>
+
+    @if (mensagem()) {
+    <div role="alert" class="alerta" [class.alerta-sucesso]="tipoMensagem() === 'sucesso'"
+      [class.alerta-erro]="tipoMensagem() === 'erro'">
+      {{ mensagem() }}
+    </div>
+    }
+  </div>
+
+  <sccon-listagem-buscas />
+</section>

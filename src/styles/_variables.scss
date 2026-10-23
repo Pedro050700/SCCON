@@ -1,0 +1,105 @@
+@use 'sass:color';
+
+// VARIÁVEIS GLOBAIS SCCON
+
+// -------- CORES --------
+$color-primary: #132745;
+$color-primary-dark: color.adjust(#132745, $lightness: -8%);
+$color-button: #D7DBDD;
+$color-button-hover: color.adjust($color-button, $lightness: -6%);
+$color-button-active: color.adjust($color-button, $lightness: -12%);
+$color-error: #d32f2f;
+$color-error-text: #721c24;
+$color-error-bg: #f8d7da;
+$color-error-border: #f5c6cb;
+$color-success-text: #155724;
+$color-success-bg: #d4edda;
+$color-success-border: #c3e6cb;
+$color-text: #333333;
+$color-text-light: #666666;
+$color-background: #ffffff;
+$color-border: #e0e0e0;
+$color-border-input: #aaaaaa;
+$color-white: #ffffff;
+$color-logo-box-bg: #f5f5f5;
+$color-logo-box-border: #333333;
+$color-background-alt: #d8d8d8;
+$color-nav-border-light: #99ccff;
+
+// -------- ESPAÇAMENTOS --------
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+
+// -------- BORDAS --------
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+
+// -------- FONTS --------
+$font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.5rem;
+$font-size-2xl: 2rem;
+
+// -------- TRANSITIONS --------
+$transition-speed: 0.3s;
+$transition-easing: ease-in-out;
+
+// -------- BREAKPOINTS --------
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+
+// -------- HEADER/MENU --------
+$nav-padding-vertical: 0.7rem;
+$nav-padding-vertical-endereco: 0.9rem;
+$nav-padding-horizontal: 1.3rem;
+$nav-mobile-padding-vertical: 0.4rem;
+$nav-mobile-padding-horizontal: 2rem;
+$nav-border-width: 1px;
+$nav-dropdown-z-index: 100;
+$nav-dropdown-arrow-size: 4px;
+$nav-dropdown-arrow-height: 5px;
+$nav-dropdown-arrow-margin: 0.3rem;
+$nav-toggle-gap: 6px;
+$nav-toggle-width: 25px;
+$nav-toggle-height: 3px;
+$nav-toggle-radius: 2px;
+$nav-toggle-size: 60px;
+$nav-animation-translate-y: -5px;
+$header-z-index: 100;
+$header-max-width: 1400px;
+$logo-size: 100px;
+
+// -------- MIXINS --------
+@mixin button-base {
+  padding: $spacing-sm $spacing-md;
+  border: 1px solid transparent;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  font-size: $font-size-base;
+  font-weight: 500;
+  transition: background-color $transition-speed $transition-easing;
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background-color: $color-button;
+  color: $color-text;
+
+  &:hover {
+    background-color: $color-button-hover;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

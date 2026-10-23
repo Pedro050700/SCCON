@@ -1,0 +1,67 @@
+@use 'styles/variables' as vars;
+
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: vars.$font-family;
+  background-color: #d8d8d8; // Cinza como no wireframe
+  color: vars.$color-text;
+  line-height: 1.6;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+// ========== VARIÁVEIS CSS GLOBAIS (FALLBACK) ==========
+:root {
+  --primary-color: #{vars.$color-primary};
+  --secondary-color: #{vars.$color-button};
+  --error-color: #{vars.$color-error};
+  --text-primary: #{vars.$color-text};
+  --text-light: #{vars.$color-text-light};
+  --background: #{vars.$color-background};
+  --border-color: #{vars.$color-border};
+}
+
+// ========== ESTILOS DE SCROLLBAR ==========
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: vars.$color-border;
+}
+
+::-webkit-scrollbar-thumb {
+  background: vars.$color-text-light;
+  border-radius: 5px;
+
+  &:hover {
+    background: vars.$color-text;
+  }
+}
+
+// ========== ACESSIBILIDADE ==========
+:focus-visible {
+  outline: 2px solid vars.$color-primary;
+  outline-offset: 2px;
+}
+
+button:disabled,
+a[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.6;
+  --text-primary: #333;
+  --text-secondary: #666;
+  --background-light: #f5f5f5;
+}

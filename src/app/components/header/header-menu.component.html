@@ -1,0 +1,53 @@
+<div class="menu-container">
+  <nav class="nav-menu" aria-label="Menu principal">
+    <a routerLink="/home" routerLinkActive="active" (click)="fecharMenu()" class="nav-item" aria-label="Ir para Home">
+      Home
+    </a>
+    <a routerLink="/webgis" routerLinkActive="active" (click)="fecharMenu()" class="nav-item" aria-label="Ir para WebGIS">
+      WebGIS
+    </a>
+    <div class="nav-dropdown">
+      <button type="button" (click)="toggleSubMenuEnderecos($event)" class="nav-dropdown-trigger"
+        [class.open]="subMenuEnderecosAberto" [attr.aria-expanded]="subMenuEnderecosAberto" aria-haspopup="menu"
+        aria-label="Menu de Endereços">
+        <span class="trigger-label">Endereços</span>
+        <span class="trigger-sizer" aria-hidden="true">Buscar Endereços</span>
+      </button>
+      <div class="nav-dropdown-menu" role="menu" [class.is-open]="subMenuEnderecosAberto"
+        [attr.aria-hidden]="!subMenuEnderecosAberto">
+        <a routerLink="/cep" routerLinkActive="active" (click)="fecharMenu()" class="nav-dropdown-item" role="menuitem"
+          aria-label="Buscar Endereços">
+          Buscar Endereços
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <button class="menu-toggle" type="button" (click)="toggle()" [class.is-open]="menuAberto" [attr.aria-expanded]="menuAberto"
+    aria-controls="nav-mobile" aria-label="Abrir menu de navegação mobile">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </button>
+</div>
+
+@if (menuAberto) {
+<nav class="nav-mobile" id="nav-mobile" aria-label="Menu de navegação mobile">
+  <a routerLink="/home" routerLinkActive="active" (click)="fecharMenu()" class="nav-item"
+    aria-label="Ir para Home">Home</a>
+  <div class="nav-dropdown">
+    <button type="button" (click)="toggleSubMenuEnderecos($event)" class="nav-dropdown-trigger"
+      [class.open]="subMenuEnderecosAberto" [attr.aria-expanded]="subMenuEnderecosAberto" aria-haspopup="menu"
+      aria-label="Menu de Endereços (mobile)">
+      Endereços
+    </button>
+    <div class="nav-dropdown-menu" role="menu" [class.is-open]="subMenuEnderecosAberto"
+      [attr.aria-hidden]="!subMenuEnderecosAberto">
+      <a routerLink="/cep" routerLinkActive="active" (click)="fecharMenu()" class="nav-dropdown-item" role="menuitem"
+        aria-label="Buscar Endereços">
+        Buscar Endereços
+      </a>
+    </div>
+  </div>
+</nav>
+}
